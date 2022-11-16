@@ -1,4 +1,4 @@
 <span>Your color is {{ bgcolor$ | async }} </span>
 <br />
-<input #colorPick type="color" [value]="bgcolor" />
+<input #colorPick type="color" [value]="bgcolor$ | async" />
 <button (click)="saveColor(colorPick.value)">Save Color</button>
