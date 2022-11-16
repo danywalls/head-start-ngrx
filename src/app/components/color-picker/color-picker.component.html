@@ -1,0 +1,4 @@
+<span>Your color is {{ bgcolor }} </span>
+<br />
+<input #colorPick type="color" [value]="bgcolor" />
+<button (click)="saveColor(colorPick.value)">Save Color</button>
