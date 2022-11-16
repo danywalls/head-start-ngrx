@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ColorStateService } from '../../services/color-state.service';
 
 @Component({
   selector: 'app-color-picker',
@@ -6,9 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./color-picker.component.css'],
 })
 export class ColorPickerComponent {
-  bgcolor: string;
+  public bgcolor$ = this.colorStateService.color$;
+
+  constructor(private colorStateService: ColorStateService) {}
 
   saveColor(color: string) {
-    this.bgcolor = color;
+    this.colorStateService.updateColor(color);
   }
 }
