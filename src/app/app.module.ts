@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { Route, RouterModule, Routes } from '@angular/router';
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
+import { StoreModule } from '@ngrx/store';
 
 const routes: Route[] = [
   {
@@ -18,7 +19,9 @@ const routes: Route[] = [
   },
 ];
 @NgModule({
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes),
+  StoreModule.forRoot({})
+  ],
   declarations: [AppComponent, HelloComponent, ColorPickerComponent],
   bootstrap: [AppComponent],
 })

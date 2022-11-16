@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { ColorStateService } from '../../services/color-state.service';
+import { pickColor } from '../../state/color.actions';
 
 @Component({
   selector: 'app-color-picker',
@@ -7,11 +9,11 @@ import { ColorStateService } from '../../services/color-state.service';
   styleUrls: ['./color-picker.component.css'],
 })
 export class ColorPickerComponent {
-  public bgcolor$ = this.colorStateService.color$;
+  // public bgcolor$ =
 
-  constructor(private colorStateService: ColorStateService) {}
+  constructor(private store: Store) {}
 
   saveColor(color: string) {
-    this.colorStateService.updateColor(color);
+    this.store.dispatch(pickColor({ color }));
   }
 }
